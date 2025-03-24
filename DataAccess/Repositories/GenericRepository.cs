@@ -7,7 +7,33 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class GenericRepository : IGenericRepository
+    public class GenericRepository<T>(DataContext context) : IGenericRepository<T> where T : class
     {
+        public void Add(T entity) 
+        {
+            throw new NotImplementedException();    
+        }
+
+        public void Remove(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T GetBy(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T GetBy(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DataAccess.Interfaces;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class PlantRepository : GenericRepository,IPlantRepository
+    public class PlantRepository(DataContext dataContext) : GenericRepository<Plant>(dataContext),IPlantRepository
     {
 
     }

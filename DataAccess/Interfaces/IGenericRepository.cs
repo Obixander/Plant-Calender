@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Interfaces
 {
-    public interface IGenericRepository
+    public interface IGenericRepository<T> where T : class
     {
+        void Add(T entity);
+        void Remove(T entity);
+        void Update(T entity);
+        T GetBy(int id);
+        T GetBy(T entity);
     }
 }
