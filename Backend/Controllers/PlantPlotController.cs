@@ -1,11 +1,80 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DataAccess.Repositories;
+using Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlantPlotController : ControllerBase
+    public class PlantPlotController(PlantPlotRepository repository) : ControllerBase
     {
+        [HttpGet]
+        public async Task<IActionResult> Get(PlantPlot plant)
+        {
+            try
+            {
+                return Ok(await repository.GetBy(plant));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetBy(int id)
+        {
+            try
+            {
+                return Ok(await repository.GetBy(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(PlantPlot plant)
+        {
+            try
+            {
+                await repository.Add(plant);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(PlantPlot plant)
+        {
+            try
+            {
+                await repository.Update(plant);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Remove(PlantPlot plant)
+        {
+            try
+            {
+                await repository.Remove(plant);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

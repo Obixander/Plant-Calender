@@ -8,10 +8,10 @@ namespace DataAccess.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
-        void Add(T entity);
-        void Remove(T entity);
-        void Update(T entity);
-        T GetBy(int id);
-        T GetBy(T entity);
+        Task Add(T entity);
+        Task Remove(T entity);
+        Task Update(T entity);
+        Task<T> GetBy(int id);
+        Task<T> GetBy(T entity);
     }
 }
