@@ -13,6 +13,7 @@
 --
 English Name : string
 Latin Name : string
+Family : string
 plant month : DateOnly
 ??MoveTime : DateTime??
 ??HarvestTime : dateOnly??
@@ -34,7 +35,7 @@ Description : string
 Plant : plant
 Last Watered : DateTime
 Last Fertilizer : DateTime
-</panel_attributes>
+History : list&lt;Plantplothistory&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
