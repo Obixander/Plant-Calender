@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>270</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Plant
+--
+English Name : string
+Latin Name : string
+plant month : DateOnly
+??MoveTime : DateTime??
+??HarvestTime : dateOnly??
+Image : string
+Description : string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>280</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>PlantPlot
+--
+Plant : plant
+Last Watered : DateTime
+Last Fertilizer : DateTime
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>280</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>PlantPlotHistory
+--
+PlantplotId : int
+History : string
+Timestamp : datetime
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
