@@ -2,6 +2,7 @@
 {
     public class Plant
     {
+        private int plantId;
         private string englishName;
         private string latinName;
         private string family;
@@ -11,6 +12,7 @@
         private DateOnly moveTime;
         private DateOnly harvestTime;
 
+        public int PlantId { get => plantId; set => plantId = value; }
         public string EnglishName { get => englishName; set => englishName = value; }
         public string LatinName { get => latinName; set => latinName = value; }
         public string Family { get => family; set => family = value; }
