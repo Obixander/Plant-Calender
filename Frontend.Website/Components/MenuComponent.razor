@@ -1,0 +1,14 @@
+﻿<div class="Sidebar-Container">
+    <h1>Menu</h1>
+    <i class="fa-solid fa-x" @onclick="closeMenu"></i>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback CloseModal { get; set; }
+
+    public async void closeMenu() {
+        await CloseModal.InvokeAsync(null);
+    }
+
+}

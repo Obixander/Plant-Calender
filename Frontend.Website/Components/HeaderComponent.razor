@@ -1,0 +1,61 @@
+﻿@inject NavigationManager Navigation
+
+
+@if (locations != null) {
+    <header>
+        <div @onclick="() => NavigateTo(locations[0])">
+            <img id="Logo" src="./images/logo.jpg" alt="An image of an plant calendar"/>
+        </div>
+
+        <div class="Container">
+            <h2 @onclick="() => NavigateTo(locations[1])">@locations[1]</h2>
+            <h1 @onclick="() => NavigateTo(locations[0])">@locations[0]</h1>
+            <h2 @onclick="() => NavigateTo(locations[2])">@locations[2]</h2>
+        </div>
+
+        <div class="Menu">
+            @if (IsMenuVisible) {
+                <MenuComponent CloseModal="CloseCreation"/>
+            }
+            else {
+                <div class="Container-Menu">
+                    <i class="fa-solid fa-bars" @onclick="() => ChangeVisiblity(IsMenuVisible)"></i>
+                </div>
+            }
+
+        </div>
+    </Header>
+}
+
+@code {
+    private bool IsMenuVisible;
+    public List<string> locations;
+
+
+    protected override Task OnInitializedAsync()
+    {
+        locations = new();
+        locations.Add("Home");
+        locations.Add("About");
+        locations.Add("Lexicon");
+        IsMenuVisible = false;
+        return base.OnInitializedAsync();
+    }
+
+    public void CloseCreation() {
+        IsMenuVisible = !IsMenuVisible;
+    }
+
+    public void ChangeVisiblity(bool changed) {
+        IsMenuVisible = !IsMenuVisible;
+    }
+    public void NavigateTo(string location) {
+        if (location == "Home") {
+            Navigation.NavigateTo("/");
+        }
+        else {
+            Navigation.NavigateTo($"/{location}");
+        }
+    }
+
+}
