@@ -9,5 +9,6 @@ namespace DataAccess.Interfaces
 {
     public interface IPlantRepository : IGenericRepository<Plant>
     {
+        Task<List<Plant>> GetAllBy(DateOnly Month);
     }
 }

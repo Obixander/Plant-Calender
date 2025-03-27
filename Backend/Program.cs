@@ -22,7 +22,6 @@ namespace Backend
             builder.Services.AddScoped<IPlantRepository, PlantRepository>();
             builder.Services.AddScoped<IPlantPlotRepository, PlantPlotRepository>();
             builder.Services.AddScoped<IPlantPlotHistoryRepository, PlantPlotHistoryRepository>();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -30,7 +29,8 @@ namespace Backend
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            };
+            app.UseCors(app => app.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

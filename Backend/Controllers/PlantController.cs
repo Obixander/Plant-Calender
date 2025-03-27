@@ -105,5 +105,19 @@ namespace Backend.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpGet]
+        [Route("/getAll")]
+        public async Task<IActionResult> GetAllBy(DateOnly month)
+        {
+            try
+            {
+                return Ok(await repository.GetAllBy(month));
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
