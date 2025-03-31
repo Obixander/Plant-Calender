@@ -1,0 +1,36 @@
+﻿/*dark green, green, light green*/
+
+.PlantCardContainer {
+    text-align: center;
+    width: 15vw;
+    height: 35vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.PlantCardContainer:hover {
+    cursor:pointer;
+    opacity: 0.3;
+}
+
+h2 {
+    margin: 0rem;
+}
+h3 {
+    margin: 0.5rem;
+}
+
+.TextContainer{
+    height: 50%;
+}
+.ImageContainer {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    padding: 5px;
+    width: 95%;
+    height: 95%;
+}
+

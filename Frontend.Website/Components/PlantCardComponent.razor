@@ -1,0 +1,22 @@
+﻿@using Entities
+<div class="PlantCardContainer">
+    <div class="TextContainer">
+        <h2>@Plant.EnglishName</h2>
+        <h3>@Activity</h3>
+        <p>@Plant.Description</p>
+    </div>
+    
+    <div class="ImageContainer">
+        <img src="@Plant.Image"/>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Plant Plant { get; set; }
+
+    [Parameter]
+    public string Activity { get; set; }
+
+}

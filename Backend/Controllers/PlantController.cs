@@ -1,4 +1,5 @@
-﻿using DataAccess.Repositories;
+﻿using DataAccess.Interfaces;
+using DataAccess.Repositories;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ namespace Backend.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class PlantController(PlantRepository repository) : ControllerBase
+    public class PlantController(IPlantRepository repository) : ControllerBase
     {
         /// <summary>
         /// Retrieves a plant based on the provided plant entity.
