@@ -6,6 +6,9 @@
     display: flex;
     justify-content: space-evenly
 }
+
+
+
 header div {
     width: 33%;
 }
@@ -36,12 +39,26 @@ header div {
     opacity: 0.6;
 }
 
-.Container-Menu i {
-    font-size: 30px;
-    margin-right: 10px;
-}
+    .Container-Menu i {
+        font-size: 30px;
+        margin-right: 10px;
+        margin-right: 1rem;
+    }
 
     h1:hover, h2:hover {
         opacity: 0.7;
+        cursor: pointer;
+    }
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+    .LogoContainer img:hover {
+        cursor: pointer;
+    }
+    .LogoContainer h1:hover {
+        opacity: 1;
         cursor: pointer;
     }

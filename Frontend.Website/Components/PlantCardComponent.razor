@@ -1,13 +1,16 @@
 ﻿@using Entities
-<div class="PlantCardContainer">
+
+
+
+<div class="PlantCardContainer" style="background-color:@Color">
     <div class="TextContainer">
         <h2>@Plant.EnglishName</h2>
         <h3>@Activity</h3>
         <p>@Plant.Description</p>
     </div>
-    
+
     <div class="ImageContainer">
-        <img src="@Plant.Image"/>
+        <img src="@Plant.Image" />
 
     </div>
 </div>
@@ -18,5 +21,24 @@
 
     [Parameter]
     public string Activity { get; set; }
+
+    public string Color = "";
+
+    protected override Task OnInitializedAsync()
+    {
+        switch (Activity)
+        {
+            case "Planting Season":
+                Color = "green";
+                break;
+            case "Transfer Season":
+                Color = "yellow";
+                break;
+            case "Harvest Season":
+                Color = "red";
+                break;
+        }
+        return base.OnInitializedAsync();
+    }
 
 }

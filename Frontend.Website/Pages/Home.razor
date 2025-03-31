@@ -9,8 +9,6 @@
 @if (plants != null) {
 
     <main>
-        <h1>Plantasia</h1>
-        <hr />
         <h2>@month.ToString("MMMM")</h2>
         <div class="CurrentMonthContainer">
          
@@ -30,7 +28,20 @@
 
         <hr />
         <h2>@month.AddMonths(1).ToString("MMMM")</h2>
-
+        <div class="CurrentMonthContainer">
+            @foreach(Plant plant in plants)
+            {
+                if (plant.PlantingDate.Month == month.Month+1) {
+                     <PlantCardComponent Plant="@plant" Activity="Planting Season"/>
+                }
+                else if (plant.MoveTime.Month == month.Month+1) {
+                     <PlantCardComponent Plant="@plant" Activity="Transfer Season"/>
+                }
+                else if (plant.HarvestTime.Month == month.Month+1) {
+                     <PlantCardComponent Plant="@plant" Activity="Harvest Season"/>
+                }
+            }
+        </div>
 
     </main>
 
@@ -52,7 +63,6 @@ else {
 
         try
         {
-            Http.BaseAddress = new Uri("https://localhost:7204");
             var response = await Http.GetStringAsync($"https://localhost:7204/getAll?month={month.Month}%2F{month.Day}%2F{month.Year}");
             plants = JsonConvert.DeserializeObject<List<Plant>>(response) ?? new();
         }
